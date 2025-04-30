@@ -1,7 +1,4 @@
 
-
-
-```python
 import streamlit as st
 from rag_pipeline import get_interaction_explanation
 
