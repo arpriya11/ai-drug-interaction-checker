@@ -2,8 +2,7 @@ from dotenv import load_dotenv
 load_dotenv()
 import os
 import streamlit as st
-from rag_pipeline import get_interaction_explanation
-
+from rag_pipeline_local import get_interaction_explanation_local as get_interaction_explanation
 st.set_page_config(page_title="Drug Interaction Checker", layout="centered")
 
 st.title("💊 AI Drug Interaction Checker")
