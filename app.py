@@ -12,9 +12,11 @@ query = st.text_input("🔎 Enter your query (e.g., Can I take ibuprofen with fl
 
 if st.button("Check Interaction"):
     if query:
+        print("🔁 Button clicked. Calling get_interaction_explanation()...") 
         with st.spinner("Analyzing..."):
             try:
                 response = get_interaction_explanation(query)
+                print("✅ Response received:", response)
                 st.markdown("### ✅ AI Response")
                 st.write(response['answer'])
                 st.markdown(f"*Sources: {', '.join(response['sources'])}*")
