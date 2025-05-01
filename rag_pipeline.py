@@ -6,7 +6,7 @@ from openai import OpenAIError
 from typing import Dict
 
 # Load your OpenAI API key
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")  # or hardcode it for testing
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Set up embedding function
 embedding_fn = OpenAIEmbeddingFunction(api_key=OPENAI_API_KEY, model_name="text-embedding-ada-002")
