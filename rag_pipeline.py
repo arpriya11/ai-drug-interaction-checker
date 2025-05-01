@@ -49,7 +49,7 @@ def get_interaction_explanation(query: str) -> Dict:
 
         print("STEP 3: Sending to OpenAI...")
         response = openai.ChatCompletion.create(
-            model="gpt-4",
+            model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": full_prompt}],
             temperature=0.4
         )
