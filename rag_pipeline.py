@@ -13,9 +13,11 @@ Include a disclaimer like: "This is not medical advice. Always consult your doct
 
 Do not make up facts. Keep the answer short and simple.
 """
+print("✅ rag_pipeline_local.py loaded")
 
 def get_interaction_explanation_local(query: str) -> Dict:
     try:
+        print("🚀 get_interaction_explanation_local() called")
         prompt = PROMPT_TEMPLATE.format(query=query)
         print("📨 Prompt sent to Ollama:\n", prompt)
 
