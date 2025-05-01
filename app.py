@@ -1,4 +1,6 @@
-
+from dotenv import load_dotenv
+load_dotenv()
+import os
 import streamlit as st
 from rag_pipeline import get_interaction_explanation
 
