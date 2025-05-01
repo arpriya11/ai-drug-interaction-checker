@@ -1,7 +1,7 @@
 import ollama
 from typing import Dict
+import traceback
 
-# Local prompt template
 PROMPT_TEMPLATE = """
 You are a helpful and safety-focused AI healthcare assistant.
 
@@ -17,15 +17,17 @@ Do not make up facts. Keep the answer short and simple.
 def get_interaction_explanation_local(query: str) -> Dict:
     try:
         prompt = PROMPT_TEMPLATE.format(query=query)
-        print("📨 Sending prompt to Ollama:\n", prompt)
+        print("📨 Prompt sent to Ollama:\n", prompt)
 
-        # Query the local model
         response = ollama.chat(
-            model="mistral",  # or another model like llama3, gemma, etc.
+            model="mistral",
             messages=[{"role": "user", "content": prompt}]
         )
 
-        print("📥 Response from Ollama:", response)
+        print("📥 Raw Ollama response:", response)
+
+        if "message" not in response or "content" not in response["message"]:
+            raise ValueError("Unexpected response format from Ollama: " + str(response))
 
         return {
             "answer": response["message"]["content"].strip(),
@@ -33,8 +35,9 @@ def get_interaction_explanation_local(query: str) -> Dict:
         }
 
     except Exception as e:
-        print(f"❌ Ollama error: {e}")
+        print("❌ ERROR while calling Ollama:")
+        traceback.print_exc()
         return {
-            "answer": "Something went wrong while generating a response using the local model.",
-            "sources": []
+            "answer": f"Something went wrong while generating a response using the local model:\n\n{str(e)}",
+            "sources": ["(none)"]
         }
