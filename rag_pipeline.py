@@ -32,7 +32,7 @@ def get_interaction_explanation_local(query: str) -> Dict:
             raise ValueError("Unexpected response format from Ollama: " + str(response))
 
         return {
-            "answer": response["message"]["content"].strip(),
+            "answer": response.message.content.strip(),
             "sources": ["Ollama: mistral (local)"]
         }
 
