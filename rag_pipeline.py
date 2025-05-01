@@ -4,6 +4,11 @@ from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
 from openai import OpenAI
 from openai import OpenAIError
 from typing import Dict
+from dotenv import load_dotenv
+load_dotenv()
+import os
+
+from langchain.embeddings import OpenAIEmbeddingFunction
 
 # Load your OpenAI API key
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
