@@ -1,17 +1,16 @@
 import os
+import openai
 import chromadb
-from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
-from openai import OpenAI
-from openai import OpenAIError
 from typing import Dict
 from dotenv import load_dotenv
+from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
+
+# Load environment variables
 load_dotenv()
-import os
-
-from langchain.embeddings import OpenAIEmbeddingFunction
-
-# Load your OpenAI API key
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Set OpenAI API key for chat model
+openai.api_key = OPENAI_API_KEY
 
 # Set up embedding function
 embedding_fn = OpenAIEmbeddingFunction(api_key=OPENAI_API_KEY, model_name="text-embedding-ada-002")
@@ -46,7 +45,7 @@ def get_interaction_explanation(query: str) -> Dict:
         # Step 2: Generate answer with context
         full_prompt = PROMPT_TEMPLATE.format(query=query) + f"\n\nContext:\n{context}"
 
-        response = OpenAI(api_key=OPENAI_API_KEY).chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-4",
             messages=[{"role": "user", "content": full_prompt}],
             temperature=0.4
@@ -59,7 +58,8 @@ def get_interaction_explanation(query: str) -> Dict:
             "sources": list(set(source_names))
         }
 
-    except OpenAIError as e:
+    except Exception as e:
+        print(f"OpenAI API error: {e}")
         return {
             "answer": "Something went wrong while generating a response.",
             "sources": []
