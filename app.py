@@ -14,10 +14,15 @@ query = st.text_input("🔎 Enter your query (e.g., Can I take ibuprofen with fl
 if st.button("Check Interaction"):
     if query:
         with st.spinner("Analyzing..."):
-            response = get_interaction_explanation(query)
-        st.markdown("### ✅ AI Response")
-        st.write(response['answer'])
-        st.markdown(f"*Sources: {', '.join(response['sources'])}*")
+            try:
+                response = get_interaction_explanation(query)
+                st.markdown("### ✅ AI Response")
+                st.write(response['answer'])
+                st.markdown(f"*Sources: {', '.join(response['sources'])}*")
+            except Exception as e:
+                st.error(f"❌ Error occurred: {e}")
+                import traceback
+                st.text(traceback.format_exc())
         st.warning("⚠️ This tool is for informational purposes only. Always consult your doctor.")
     else:
         st.error("Please enter a query to continue.")
