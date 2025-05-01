@@ -34,22 +34,26 @@ Only answer based on verified documents, and cite sources if available.
 
 def get_interaction_explanation(query: str) -> Dict:
     try:
-        # Step 1: Embed & retrieve relevant documents
+        print("STEP 1: Querying vector DB...")
         results = collection.query(query_texts=[query], n_results=3)
+        print("ChromaDB query results:", results)
+
         context_docs = results.get("documents", [[]])[0]
         sources = results.get("metadatas", [[]])[0]
-
         context = "\n\n".join(context_docs)
         source_names = [s.get("source", "Unknown") for s in sources]
 
-        # Step 2: Generate answer with context
+        print("STEP 2: Generating prompt...")
         full_prompt = PROMPT_TEMPLATE.format(query=query) + f"\n\nContext:\n{context}"
+        print("Prompt:\n", full_prompt)
 
+        print("STEP 3: Sending to OpenAI...")
         response = openai.ChatCompletion.create(
             model="gpt-4",
             messages=[{"role": "user", "content": full_prompt}],
             temperature=0.4
         )
+        print("OpenAI responded.")
 
         answer = response.choices[0].message.content.strip()
 
@@ -59,7 +63,9 @@ def get_interaction_explanation(query: str) -> Dict:
         }
 
     except Exception as e:
-        print(f"OpenAI API error: {e}")
+        import traceback
+        print(f"❌ ERROR: {e}")
+        print(traceback.format_exc())
         return {
             "answer": "Something went wrong while generating a response.",
             "sources": []
