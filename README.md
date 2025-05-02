@@ -1,4 +1,4 @@
-#ai-drug-interaction-checker
+
 A Generative AI tool to explain drug interactions in simple language.
 
 This project is a local AI-powered app that explains drug interactions in simple, non-technical language. It helps non-experts understand the risks of combining medications, powered entirely by:
