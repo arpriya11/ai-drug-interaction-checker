@@ -2,6 +2,8 @@
 
 This project is a fully offline AI-powered app that helps non-experts understand drug interactions in simple, plain language. Built using Streamlit and Ollama with the Mistral 7B model, this assistant is designed to be accessible, privacy-friendly, and safe — no internet connection required.
 
+
+
 **Problem**
 
 Most drug interaction checkers require an internet connection and present information in clinical or confusing terms. This tool aims to:
@@ -11,6 +13,8 @@ Simplify medication safety information
 Make it accessible to laypersons
 
 Ensure offline access for better privacy and control
+
+
 
  **Goals**
 
@@ -22,12 +26,16 @@ Include appropriate safety warnings and disclaimers
 
 Work entirely on local hardware without any cloud dependency
 
+
+
 **Key Features**
 
 Runs fully offline using Ollama + Mistral 7B
 Simple language responses optimized for non-experts
 Ethical safety guardrails (no dosage, always disclaimers)
 Fast, responsive UI with Streamlit
+
+
 
 **Architecture Overview**
 
@@ -51,6 +59,7 @@ Inference Engine: Ollama
 UI: Streamlit
 
 Language: Python**
+
 
 **Folder Structure**
 
