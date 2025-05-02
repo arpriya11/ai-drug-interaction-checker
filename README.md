@@ -21,7 +21,7 @@ drug-interaction-checker/
 ├── app.py                   # Local version using Ollama
 ├── rag_pipeline_local.py    # Ollama model logic
 ├── requirements.txt         # Python dependencies
-└── .streamlit
+
 
 🔧 Local Setup (Ollama version)
 
