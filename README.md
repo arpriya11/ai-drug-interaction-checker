@@ -107,7 +107,8 @@ Drug info is not real-time synced with medical databases
 For educational/demo use only
 
 
-** Future Plans**
+
+**Future Plans**
 
 Add offline vector DB of FDA + MedlinePlus
 
@@ -116,6 +117,8 @@ Voice command integration
 Multi-language support
 
 Android/iOS wrapper for mobile use
+
+
 
 **🙌 Acknowledgments**
 
@@ -126,7 +129,7 @@ Streamlit for UI
 Mistral AI for open-weight models
 
 
-**🔧 Local Setup (Ollama version)**
+**Local Setup (Ollama version)**
 
 1. Install dependencies
 
