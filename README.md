@@ -30,9 +30,12 @@ Work entirely on local hardware without any cloud dependency
 
 **Key Features**
 
-Runs fully offline using Ollama + Mistral 7B
+Runs fully offline using Ollama + Mistral 7B.
+
 Simple language responses optimized for non-experts
+
 Ethical safety guardrails (no dosage, always disclaimers)
+
 Fast, responsive UI with Streamlit
 
 
