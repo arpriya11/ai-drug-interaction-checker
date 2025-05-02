@@ -1,27 +1,119 @@
+**Offline AI Drug Interaction Checker**
 
-A Generative AI tool to explain drug interactions in simple language.
+This project is a fully offline AI-powered app that helps non-experts understand drug interactions in simple, plain language. Built using Streamlit and Ollama with the Mistral 7B model, this assistant is designed to be accessible, privacy-friendly, and safe — no internet connection required.
 
-This project is a local AI-powered app that explains drug interactions in simple, non-technical language. It helps non-experts understand the risks of combining medications, powered entirely by:
+**Problem**
 
-🖥️ Ollama + Mistral (runs locally, offline)
+Most drug interaction checkers require an internet connection and present information in clinical or confusing terms. This tool aims to:
 
-**🚀 Features**
+Simplify medication safety information
 
-Natural language query input (e.g., "Can I take ibuprofen with fluoxetine?")
+Make it accessible to laypersons
 
-AI-generated, layman-friendly response
+Ensure offline access for better privacy and control
 
-Includes a safety disclaimer
+ **Goals**
 
-Fully local mode via Ollama (no internet required)
+Understand if medications may interact
 
-**🗂 Folder Structure**
+Generate clear, simplified language
+
+Include appropriate safety warnings and disclaimers
+
+Work entirely on local hardware without any cloud dependency
+
+**Key Features**
+
+Runs fully offline using Ollama + Mistral 7B
+Simple language responses optimized for non-experts
+Ethical safety guardrails (no dosage, always disclaimers)
+Fast, responsive UI with Streamlit
+
+**Architecture Overview**
+
+User Input (Streamlit UI)
+        ↓
+Prompt Template Applied (in Python)
+        ↓
+Local LLM Inference via Ollama (Mistral model)
+        ↓
+Response + Disclaimer shown in UI
+
+**Example Query**
+User: Can I take ibuprofen with fluoxetine?AI: “Ibuprofen and fluoxetine taken together may increase the risk of stomach bleeding. Always consult your doctor before combining these medications.”
+
+** Stack
+
+LLM: Mistral 7B
+
+Inference Engine: Ollama
+
+UI: Streamlit
+
+Language: Python**
+
+**Folder Structure**
 
 drug-interaction-checker/
-├── app.py                   # Local version using Ollama
-├── rag_pipeline_local.py    # Ollama model logic
-├── requirements.txt         # Python dependencies
+├── app.py                   # Streamlit app (offline)
+├── rag_pipeline_local.py    # Model logic and prompt
+├── requirements.txt         # Dependencies
 
+
+ **Setup Instructions**
+
+1. Clone the repo & set up a virtual environment
+
+git clone https://github.com/YOUR_USERNAME/drug-interaction-checker.git
+cd drug-interaction-checker
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+2. Install and run Ollama
+
+brew install ollama   # macOS only
+ollama pull mistral
+ollama serve          # Keep this running in a separate terminal
+
+3. Run the app
+
+streamlit run app.py
+
+Then open http://localhost:8501 in your browser.
+
+**Evaluation Strategy**
+
+
+Relevance: Manual validation against trusted sources
+
+Safety: No hallucinated dosage advice, disclaimers enforced
+
+**Limitations**
+
+Not intended for emergency use
+
+Drug info is not real-time synced with medical databases
+
+For educational/demo use only
+
+🔮 Future Plans
+
+Add offline vector DB of FDA + MedlinePlus
+
+Voice command integration
+
+Multi-language support
+
+Android/iOS wrapper for mobile use
+
+🙌 Acknowledgments
+
+Ollama for offline LLMs
+
+Streamlit for UI
+
+Mistral AI for open-weight models
 
 **🔧 Local Setup (Ollama version)**
 
