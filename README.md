@@ -39,13 +39,8 @@ Fast, responsive UI with Streamlit
 
 **Architecture Overview**
 
-User Input (Streamlit UI)
-        ↓
-Prompt Template Applied (in Python)
-        ↓
-Local LLM Inference via Ollama (Mistral model)
-        ↓
-Response + Disclaimer shown in UI
+![Architecture](https://github.com/user-attachments/assets/1698de84-e9cc-4bbf-ae40-a295251921a2)
+
 
 **Example Query**
 User: Can I take ibuprofen with fluoxetine?AI: “Ibuprofen and fluoxetine taken together may increase the risk of stomach bleeding. Always consult your doctor before combining these medications.”
