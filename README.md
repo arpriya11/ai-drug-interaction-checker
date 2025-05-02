@@ -106,7 +106,8 @@ Drug info is not real-time synced with medical databases
 
 For educational/demo use only
 
-🔮 Future Plans
+
+** Future Plans**
 
 Add offline vector DB of FDA + MedlinePlus
 
@@ -116,13 +117,14 @@ Multi-language support
 
 Android/iOS wrapper for mobile use
 
-🙌 Acknowledgments
+**🙌 Acknowledgments**
 
 Ollama for offline LLMs
 
 Streamlit for UI
 
 Mistral AI for open-weight models
+
 
 **🔧 Local Setup (Ollama version)**
 
