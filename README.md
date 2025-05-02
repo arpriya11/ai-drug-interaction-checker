@@ -63,7 +63,7 @@ Language: Python**
 
 **Folder Structure**
 
-drug-interaction-checker/
+ai-drug-interaction-checker/
 ├── app.py                   # Streamlit app (offline)
 ├── rag_pipeline_local.py    # Model logic and prompt
 ├── requirements.txt         # Dependencies
@@ -73,8 +73,8 @@ drug-interaction-checker/
 
 1. Clone the repo & set up a virtual environment
 
-git clone https://github.com/YOUR_USERNAME/drug-interaction-checker.git
-cd drug-interaction-checker
+git clone https://github.com/YOUR_USERNAME/ai-drug-interaction-checker.git
+cd ai-drug-interaction-checker
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
